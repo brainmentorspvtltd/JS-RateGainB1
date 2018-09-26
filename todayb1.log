@@ -1,0 +1,845 @@
+var a;
+undefined
+typeof(a);
+"undefined"
+a=100;
+100
+typeof(a);
+"number"
+a=1;
+1
+typeof(a);
+"number"
+a=100.20;
+100.2
+typeof(a);
+"number"
+a = "Amit";
+"Amit"
+typeof(a);
+"string"
+a='Amit';
+"Amit"
+typeof(a);
+"string"
+a='A';
+"A"
+typeof(a);
+"string"
+a=`gdfkjlkdfjglkfd
+gdf
+g
+dg
+dfg
+fd
+gfd
+`;
+"gdfkjlkdfjglkfd
+gdf
+g
+dg
+dfg
+fd
+gfd
+"
+typeof(a);
+"string"
+a;
+"gdfkjlkdfjglkfd
+gdf
+g
+dg
+dfg
+fd
+gfd
+"
+a=true;
+true
+typeof(a);
+"boolean"
+a = 100;
+100
+typeof(a);
+"number"
+a=100/0;
+Infinity
+a;
+Infinity
+typeof(a);
+"number"
+a;
+Infinity
+a=100;
+100
+b="100";
+"100"
+a + b;
+"100100"
+a - b;
+0
+a + parseInt(b);
+200
+a * b;
+10000
+a/b;
+1
+b;
+"100"
+b = "Amit";
+"Amit"
+a + b;
+"100Amit"
+a  - b;
+NaN
+c = a  - b;
+NaN
+typeof (c);
+"number"
+a = Number("100");
+100
+a;
+100
+typeof(Number);
+"function"
+typeof(parseInt);
+"function"
+a = 100/"Hello";
+NaN
+isNaN(a);
+true
+isNaN(a)?0:100;
+0
+a=100/0;
+Infinity
+isFinite(a);
+false
+a="Let's Do It ";
+"Let's Do It "
+a=100;
+100
+b = 200;
+200
+console.log("A is "+a+" and B is "+b);
+VM1506:1 A is 100 and B is 200
+undefined
+console.log(`A is ${a} and B is ${b}`);
+VM1561:1 A is 100 and B is 200
+undefined
+var emp = {};
+undefined
+typeof(emp);
+"object"
+emp.id = 1001;
+1001
+emp.name = "Amit";
+"Amit"
+emp;
+{id: 1001, name: "Amit"}
+emp instanceof Object;
+true
+typeof(Object);
+"function"
+emp;
+{id: 1001, name: "Amit"}
+delete emp.id;
+true
+emp;
+{name: "Amit"}
+var emp2 = {id:1002, name:'Ram'};
+undefined
+emp2;
+{id: 1002, name: "Ram"}
+typeof(emp2);
+"object"
+emp2.salary = 9999;
+9999
+emp2;
+{id: 1002, name: "Ram", salary: 9999}
+var arr = [10,20,30,40,50];
+undefined
+arr = [10,"Amit",true, [90,200]];
+(4) [10, "Amit", true, Array(2)]
+typeof(arr);
+"object"
+arr instanceof Array;
+true
+typeof(arr);
+"object"
+typeof(Array);
+"function"
+arr instanceof Object;
+true
+arr;
+(4) [10, "Amit", true, Array(2)]
+function show(){
+console.log("I am Show");
+}
+undefined
+typeof(show);
+"function"
+show();
+VM2660:2 I am Show
+undefined
+show(10,20);
+VM2660:2 I am Show
+undefined
+show("Amit",10,20,90,[100,200]);
+VM2660:2 I am Show
+undefined
+console.dir(show);
+VM2853:1 ƒ show()arguments: nullcaller: nulllength: 0name: "show"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM2660:1[[Scopes]]: Scopes[1]
+undefined
+function show(){
+console.log("I am Show ",arguments.length);
+}
+undefined
+show();
+VM2983:2 I am Show  0
+undefined
+show(10,20);
+VM2983:2 I am Show  2
+undefined
+10 + true;
+11
+function add(){
+var sum = 0;
+for(var i = 0; i<arguments.length; i++){
+sum +=arguments[i];
+}
+return sum;
+}
+undefined
+add();
+0
+add(10,20);
+30
+add(10,20,30,40,50);
+150
+add(10,"20",30,40,50);
+"1020304050"
+function add(){
+var sum = 0;
+for(var i = 0; i<arguments.length; i++){
+sum +=parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(10,"20",30,40,50);
+150
+add(10,"20","Amit",40,50);
+NaN
+function add(){
+var sum = 0;
+for(var i = 0; i<arguments.length; i++){
+sum +=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(1,2,"3","4","Amit");
+10
+var e = add();
+undefined
+e;
+0
+var e = add(10,20);
+undefined
+e;
+30
+var e = add;
+undefined
+typeof(e);
+"function"
+e;
+ƒ add(){
+var sum = 0;
+for(var i = 0; i<arguments.length; i++){
+sum +=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+return sum;
+}
+e(10,20);
+30
+function evenOdd(num){
+console.log(num%2==0?"Even "+num+" Odd "+num);
+}
+
+VM4452:2 Uncaught SyntaxError: Unexpected token )
+function evenOdd(num){
+console.log(num%2==0?"Even "+num:" Odd "+num);
+}
+
+undefined
+function cube(num){
+console.log(num**3);
+}
+undefined
+function loop(fn){
+for(var i = 1; i<=10; i++){
+fn(i);
+}
+}
+undefined
+loop(evenOdd);
+VM4473:2  Odd 1
+VM4473:2 Even 2
+VM4473:2  Odd 3
+VM4473:2 Even 4
+VM4473:2  Odd 5
+VM4473:2 Even 6
+VM4473:2  Odd 7
+VM4473:2 Even 8
+VM4473:2  Odd 9
+VM4473:2 Even 10
+undefined
+loop(cube);
+VM4524:2 1
+VM4524:2 8
+VM4524:2 27
+VM4524:2 64
+VM4524:2 125
+VM4524:2 216
+VM4524:2 343
+VM4524:2 512
+VM4524:2 729
+VM4524:2 1000
+undefined
+var count = 1;
+function counter(){
+
+count++;
+return count;
+}
+undefined
+counter();
+2
+counter();
+3
+counter();
+4
+counter();
+5
+counter();
+6
+function initCount(){
+var c = 0;
+function doCount(){
+c++;
+return c;
+}
+return doCount;
+}
+undefined
+var e = initCount();
+undefined
+e;
+ƒ doCount(){
+c++;
+return c;
+}
+typeof(e);
+"function"
+e();
+1
+c;
+NaN
+c;
+NaN
+e();
+2
+e();
+3
+e();
+4
+e();
+5
+e();
+6
+e();
+7
+e;
+ƒ doCount(){
+c++;
+return c;
+}
+e = initCount();
+ƒ doCount(){
+c++;
+return c;
+}
+e();
+1
+var rr = (function (){
+var c = 0;
+function doCount(){
+c++;
+return c;
+}
+return doCount;
+})();
+undefined
+rr;
+ƒ doCount(){
+c++;
+return c;
+}
+rr();
+1
+rr();
+2
+rr();
+3
+rr();
+4
+function output(){
+for(var i = 1; i<=10; i++){
+}
+}
+undefined
+function output(){
+console.log("I is ",i);
+for(var i = 1; i<=10; i++){
+console.log(i);
+}
+console.log("*** I is ",i);
+}
+undefined
+output();
+VM7748:2 I is  undefined
+VM7748:4 1
+VM7748:4 2
+VM7748:4 3
+VM7748:4 4
+VM7748:4 5
+VM7748:4 6
+VM7748:4 7
+VM7748:4 8
+VM7748:4 9
+VM7748:4 10
+VM7748:6 *** I is  11
+undefined
+function disp(){
+console.log("I is ",i);
+for(let i = 1; i<=10; i++){
+console.log(i);
+}
+console.log("*** I is ",i);
+}
+undefined
+disp();
+VM7917:2 Uncaught ReferenceError: i is not defined
+    at disp (<anonymous>:2:21)
+    at <anonymous>:1:1
+disp @ VM7917:2
+(anonymous) @ VM7927:1
+function disp(){
+console.log("I is ",i);
+for( i = 1; i<=10; i++){
+console.log(i);
+}
+console.log("*** I is ",i);
+}
+undefined
+disp();
+VM7956:2 Uncaught ReferenceError: i is not defined
+    at disp (<anonymous>:2:21)
+    at <anonymous>:1:1
+disp @ VM7956:2
+(anonymous) @ VM7965:1
+function test(){
+console.log("I is ",i);
+for( i = 1; i<=10; i++){
+console.log(i);
+}
+console.log("*** I is ",i);
+}
+undefined
+test();
+VM7978:2 Uncaught ReferenceError: i is not defined
+    at test (<anonymous>:2:21)
+    at <anonymous>:1:1
+test @ VM7978:2
+(anonymous) @ VM7987:1
+function test(){
+console.log("I is ",i);
+k = 1000;
+for( i = 1; i<=10; i++){
+console.log(i);
+}
+console.log("*** I is ",i);
+}
+undefined
+function test(){
+console.log("I is ",i);
+for(var i = 1; i<=10; i++){
+console.log(i);
+}
+console.log("*** I is ",i);
+}
+undefined
+function test(){
+console.log("I is ",i);
+k = 1000;
+for(var i = 1; i<=10; i++){
+console.log(i);
+}
+console.log("*** I is ",i);
+}
+undefined
+test();
+VM8042:2 I is  undefined
+VM8042:5 1
+VM8042:5 2
+VM8042:5 3
+VM8042:5 4
+VM8042:5 5
+VM8042:5 6
+VM8042:5 7
+VM8042:5 8
+VM8042:5 9
+VM8042:5 10
+VM8042:7 *** I is  11
+undefined
+k;
+1000
+'use strict'
+"use strict"
+console.dir(output);
+VM8247:1 ƒ output()arguments: nullcaller: nulllength: 0name: "output"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM7748:1[[Scopes]]: Scopes[1]
+undefined
+function adder(...args){
+let sum = 0;
+for(let i = 0; i<args.length ; i++){
+sum+=args[i];
+}
+return sum;
+}
+undefined
+adder(10,20);
+30
+adder();
+0
+adder(1,2,3,4,5,6);
+21
+var x= [10,20,30,40,50];
+undefined
+for(let i of x){
+console.log(i);
+}
+VM8561:2 10
+VM8561:2 20
+VM8561:2 30
+VM8561:2 40
+VM8561:2 50
+undefined
+function adder(...args){
+let sum = 0;
+for(let i of args){
+sum+=i;
+}
+return sum;
+}
+undefined
+adder(10,20,40);
+70
+var a = [10,20,30,40,50];
+undefined
+var b = [100,20,30,40];
+undefined
+var d = [a,b];
+undefined
+d;
+(2) [Array(5), Array(4)]0: (5) [10, 20, 30, 40, 50]1: (4) [100, 20, 30, 40]length: 2__proto__: Array(0)
+var d = [...a,...b];
+undefined
+d;
+(9) [10, 20, 30, 40, 50, 100, 20, 30, 40]
+d;
+(9) [10, 20, 30, 40, 50, 100, 20, 30, 40]
+var t = d[2];
+undefined
+t;
+30
+var [x,y,,z] = d;
+undefined
+x;
+10
+y;
+20
+z;
+40
+var obj = {id:1001,name:'Ram'};
+undefined
+var {id, name} = obj;
+undefined
+id;
+1001
+name;
+"Ram"
+obj;
+{id: 1001, name: "Ram"}
+var obj2 = {hra:999, bonus:2222};
+undefined
+var emp = {obj, obj2};
+undefined
+emp.obj.id;
+1001
+var emp = {...obj, ...obj2};
+undefined
+emp;
+{id: 1001, name: "Ram", hra: 999, bonus: 2222}
+var emp = {obj, obj2};
+undefined
+var [a,b] = [100,200];
+undefined
+a;
+100
+b;
+200
+[a,b] = [b,a];
+(2) [200, 100]
+a;
+200
+b;
+100
+function test(){
+console.log("I am Test ");
+}
+undefined
+this;
+Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …}
+window;
+Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …}
+window == this;
+true
+window.test();
+VM9704:2 I am Test 
+undefined
+test();
+VM9704:2 I am Test 
+undefined
+var admin = {
+test:function(){
+console.log("I am Admin Test ");
+}
+}
+undefined
+test();
+VM9704:2 I am Test 
+undefined
+window.test();
+VM9704:2 I am Test 
+undefined
+admin.test();
+VM9974:3 I am Admin Test 
+undefined
+var emp = {
+test(){
+console.log("Emp Test ");
+}
+}
+undefined
+emp.test();
+VM10092:3 Emp Test 
+undefined
+window.emp.test();
+VM10092:3 Emp Test 
+undefined
+emp;
+{test: ƒ}
+emp.salary=function(){
+console.log("Emp Salary ");
+}
+ƒ (){
+console.log("Emp Salary ");
+}
+emp.salary();
+VM10263:2 Emp Salary 
+undefined
+function Calc(){
+var add=function(){
+console.log("I am Add ");
+}
+var sub= function(){
+console.log("I am Subtract ");
+}
+return [add,sub]; 
+}
+undefined
+var obj = Calc();
+undefined
+obj;
+(2) [ƒ, ƒ]0: ƒ ()arguments: nullcaller: nulllength: 0name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM10409:2[[Scopes]]: Scopes[1]1: ƒ ()length: 2__proto__: Array(0)
+obj[0]()
+VM10409:3 I am Add 
+undefined
+obj[1]()
+VM10409:6 I am Subtract 
+undefined
+function Calc(){
+var add=function add(){
+console.log("I am Add ");
+}
+var sub= function sub(){
+console.log("I am Subtract ");
+}
+return [add,sub]; 
+}
+undefined
+var obj = Calc();
+undefined
+obj;
+(2) [ƒ, ƒ]0: ƒ add()1: ƒ sub()length: 2__proto__: Array(0)
+function add(x,y){
+	return x + y;
+}
+undefined
+var add1 = (x,y)=>x+y;
+undefined
+typeof(add1);
+"function"
+add1(10,20);
+30
+add1 =1000;
+1000
+add1(10,20);
+VM10899:1 Uncaught TypeError: add1 is not a function
+    at <anonymous>:1:1
+(anonymous) @ VM10899:1
+const add1 = (x,y)=>x+y;
+VM10935:1 Uncaught SyntaxError: Identifier 'add1' has already been declared
+    at <anonymous>:1:1
+(anonymous) @ VM10935:1
+const add2 = (x,y)=>x+y;
+undefined
+add2= 1000;
+VM10953:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:5
+(anonymous) @ VM10953:1
+add2(100,200);
+300
+admin;
+{test: ƒ}
+admin = 1000;
+1000
+const admin2 = {
+test:function(){
+console.log("I am Admin Test ");
+}
+}
+undefined
+admin2 =999;
+VM11082:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:8
+(anonymous) @ VM11082:1
+admin2.test();
+VM11073:3 I am Admin Test 
+undefined
+var emp = {id:1001,name:'Ram', salary:99999};
+undefined
+function createEmpObject(id , name, salary){
+var emp = {};
+emp.id = id;
+emp.name = name;
+emp.salary = salary;
+return emp;
+}
+undefined
+var ram = createEmpObject(1001,"Ram",9999);
+undefined
+typeof(ram);
+"object"
+function Employee(id , name, salary){
+//var emp = {};  var  this = {};
+this.id = id;
+this.name = name;
+this.salary = salary;
+//return this;
+}
+undefined
+var ram = new Employee(1001,"Ram",2222);
+undefined
+raml
+VM12522:1 Uncaught ReferenceError: raml is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM12522:1
+ram;
+Employee {id: 1001, name: "Ram", salary: 2222}
+typeof(ram);
+"object"
+ram instanceof Employee;
+true
+function Employee(id , name, salary){
+//var emp = {};  var  this = {};
+this.id = id;
+this.name = name;
+this.salary = salary;
+this.print=function(){
+console.log("id "+this.id+" name +"this.name+" Salary "+this.salary);
+}
+//return this;
+}
+VM12675:7 Uncaught SyntaxError: missing ) after argument list
+function Employee(id , name, salary){
+//var emp = {};  var  this = {};
+this.id = id;
+this.name = name;
+this.salary = salary;
+this.print=function(){
+console.log("id "+this.id+" name "+this.name+" Salary "+this.salary);
+}
+//return this;
+}
+undefined
+var ram =new Employee(1001,"Ram",9999);
+undefined
+ram.print();
+VM12698:7 id 1001 name Ram Salary 9999
+undefined
+var shyam = new Employee(1002,"Shyam",3333);
+undefined
+ram;
+Employee {id: 1001, name: "Ram", salary: 9999, print: ƒ}
+shyam;
+Employee {id: 1002, name: "Shyam", salary: 3333, print: ƒ}
+Employee.prototype.show=function(){
+console.log(`Id is ${this.id} NAme is ${this.name} Salary is ${this.salary}`);
+}
+ƒ (){
+console.log(`Id is ${this.id} NAme is ${this.name} Salary is ${this.salary}`);
+}
+ram.show();
+VM13076:2 Id is 1001 NAme is Ram Salary is 9999
+undefined
+shyam.show();
+VM13076:2 Id is 1002 NAme is Shyam Salary is 3333
+undefined
+ram;
+Employee {id: 1001, name: "Ram", salary: 9999, print: ƒ}id: 1001name: "Ram"print: ƒ ()salary: 9999__proto__: show: ƒ ()constructor: ƒ Employee(id , name, salary)__proto__: Object
+Employee.display=function(){
+console.log("I am Like Static ");
+}
+ƒ (){
+console.log("I am Like Static ");
+}
+Employee.display();
+VM13302:2 I am Like Static 
+undefined
+class Customer{
+constructor(id, name, balance){
+this.id = id;
+this.name = name;
+this.balance = balance;
+}
+print(){
+console.log("Id is "+this.id+" Name is "+this.name);
+}
+}
+undefined
+typeof(Customer);
+"function"
+var mike = new Customer(10, "Mike",3333);
+undefined
+mike;
+Customer {id: 10, name: "Mike", balance: 3333}
