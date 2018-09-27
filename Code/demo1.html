@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function doAjax() {
+            const url = "http://api.giphy.com/v1/gifs/search?q=he man&api_key=vFRSFWo6g7vJ7ZAjt3DMDolU52ORTxwH&limit=5";
+            var pr = fetch(url);
+            pr.then(response => {
+                response.json().then(data => {
+                    console.log("Data is ", data.data[0].images.original.url);
+                    var img = document.createElement("img");
+                    img.src = "https://media0.giphy.com/media/pjkngLDANouLm/giphy.gif";
+                    img.src = data.data[0].images.original.url;
+                    document.querySelector("#output").appendChild(img);
+                }).catch(err => {
+                    console.log("error is ", err);
+                })
+                console.log("Response is ", response);
+            }).catch(err => {
+                console.log("Error is ", err);
+            })
+        }
+
+        function showMeXValue(x) {
+            console.log("SHOW ::: X is ", x);
+        }
+
+        function callHeavy() {
+            //heavy(showMeXValue);
+            var pr = heavy();
+            var pr2 = heavy();
+            var pr3 = heavy();
+            Promise.all([pr, pr2, pr3]).then(responses => console.log("Responses are ", responses)).catch(err => console.log("Err is ", err));
+            console.log("Promise is ", pr);
+            // Other Stuff
+            for (let i = 1; i <= 10; i++) {
+                console.log("Some Other Stuff ", i);
+            }
+            // pr.then(data => console.log("Data is ", data)).catch(err => console.log("error ", err));
+            console.log("I WILL DO SOME THING ELSE>>>>>>>>");
+            //console.log("Before Call X  is ", x);
+            // var x = heavy();
+            //console.log("X is ", x);
+        }
+
+        function heavy() {
+            console.log("Call Start");
+            var pr = new Promise((resolve, reject) => {
+                setTimeout(function() {
+                    for (let i = 1; i <= 100000; i++) {
+                        for (let j = 1; j <= 100000; j++) {
+
+                        }
+                    }
+                    document.querySelector("#heavy").innerText = "Heavy Done";
+                    resolve("I am Done");
+                    //return "I am Done";
+                }, 6000);
+            });
+            return pr;
+
+        }
+
+        // CallBack
+        /* function heavy(fn) {
+             setTimeout(function() {
+                 for (let i = 1; i <= 100000; i++) {
+                     for (let j = 1; j <= 100000; j++) {
+
+                     }
+                 }
+                 document.querySelector("#heavy").innerText = "Heavy Done";
+                 fn("I am Done");
+                 //return "I am Done";
+             }, 6000);
+
+         }*/
+        var counter = 1;
+
+        function light() {
+            counter++;
+            document.querySelector("#result").innerText = counter;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="output">
+    </div>
+    <button onclick="doAjax()">Ajax Call</button>
+    <hr>
+    <p id="heavy"></p>
+    <table>
+        <tr>
+            <td><button onclick="callHeavy()">Heavy</button></td>
+            <td><button onclick="light()">Light</button></td>
+        </tr>
+        <p id="result"></p>
+    </table>
+</body>
+
+</html>
